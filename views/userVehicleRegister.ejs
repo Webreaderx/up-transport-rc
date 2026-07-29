@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+
+            font-family: "Inter", sans-serif;
+
+        }
+        .backsec {
+            background: url("/public/images/bgfull.png") no-repeat center center/cover;
+            position: relative;
+
+        }
+
+        .texo {
+            text-shadow: 0 0 60px white;
+        }
+
+        .gradi {
+            background: linear-gradient(to right, rgba(243, 243, 243, 0.616), Transparent);
+
+        }
+
+        .gradi2 {
+            background: linear-gradient(to right, rgb(255, 255, 255), Transparent, Transparent);
+
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen overflow-x-hidden">
+    <nav class=" h-23 md:h-auto flex items-center justify-between relative bg-white">
+        <div class="flex gap-2 p-2 items-center h-full">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu"
+                class="lucide lucide-menu-icon lucide-menu h-[5vw] flex md:hidden">
+                <path d="M4 5h16" />
+                <path d="M4 12h16" />
+                <path d="M4 19h16" />
+            </svg>
+            <img class=" h-[14vw] md:h-[5vw]" src="/images/UPLogo.png" alt="">
+            <div>
+                <h3 class="text-[4vw] md:text-[1.6vw] tracking-tight sm:leading-tight font-medium">Uttar Pradesh State
+                    Transport</h3>
+                <p class=" text-xs md:text-[1vw]">Vehical Registration Portal</p>
+            </div>
+        </div>
+        <div class="h-full gap-4 pr-5 flex items-center">
+            <div class="h-full hidden md:flex items-center  ">
+                <img class="h-7/10 md:h-[4vw]" src="/images/secure.png" alt="">
+                <div class="h-full flex flex-col  justify-center ">
+                    <h2 class=" text-sm md:text-[1vw] font-medium border-r-3 border-zinc-300">Official Portal</h2>
+                    <p class="text-xs md:text-[0.9vw] border-r-3 border-zinc-300 pr-3">Goverment of Uttar Pradesh</p>
+                </div>
+            </div>
+            <div class="h-full flex gap-[0.6vw] items-center">
+                <% if(user.profilepic.data){%>
+                    <img class=" h-[10vw] w-[10vw] md:h-[4vw] md:w-[4vw] rounded-full object-cover"
+                        src="/user/showdp/<%=user._id %>" alt="">
+                    <% }else{%>
+
+                        <img class=" h-5/10 md:h-[4vw] md:w-[4vw] rounded-full" src="/images/blank.png" alt="">
+                        <% } %>
+                <div class="h-full flex flex-col   justify-center">
+                    <h2 class=" text-sm md:text-[1vw] hidden md:flex font-medium">
+                        <%=user.username%>
+                    </h2>
+                    <p class="text-xs md:text-[0.9vw] hidden md:flex ">User</p>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="w-full flex  flex-1  bg-blue-50">
+        <div id="slide"
+            class=" w-4/5 h-[135vw]   flex md:hidden md:h-auto md:w-1/5 absolute md:relative flex flex-col justify-between bg-white">
+            <div class="w-full  flex gap-[1.6vw] md:gap-[0.6vw] p-[1.6vw] md:p-[0.9vw] flex-col">
+
+                <div class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex md:hidden gap-[2vw] md:gap-[0.5vw] items-center"
+                    id="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-left-from-line-icon lucide-arrow-left-from-line h-[4.8] ">
+                        <path d="m9 6-6 6 6 6" />
+                        <path d="M3 12h14" />
+                        <path d="M21 19V5" />
+                    </svg> Back
+                </div>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw]  text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/dashboard" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-house-icon lucide-house h-[4.5vw] md:h-[1.5vw]">
+                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                        <path
+                            d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg> Dashboard</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/applications" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-file-user-icon lucide-file-user h-[4.5vw] md:h-[1.5vw]">
+                        <path
+                            d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                        <path d="M16 22a4 4 0 0 0-8 0" />
+                        <circle cx="12" cy="15" r="3" />
+                    </svg> My Applications</a>
+                <a class="hover:bg-blue-50  bg-blue-100 text-blue-700 p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/vehicle" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-file-user-icon lucide-file-user h-[4.5vw] md:h-[1.5vw]">
+                        <path
+                            d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                        <path d="M16 22a4 4 0 0 0-8 0" />
+                        <circle cx="12" cy="15" r="3" />
+                    </svg> Apply for Registration</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/myVehicles" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-car-front-icon lucide-car-front h-[4.5vw] md:h-[1.5vw]">
+                        <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+                        <path d="M7 14h.01" />
+                        <path d="M17 14h.01" />
+                        <rect width="18" height="8" x="3" y="10" rx="2" />
+                        <path d="M5 18v2" />
+                        <path d="M19 18v2" />
+                    </svg> My Vehicle</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/notifications" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bell-icon lucide-bell h-[4.5vw] md:h-[1.5vw]">
+                        <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                        <path
+                            d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+                    </svg> Notification</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/logout"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-log-out-icon lucide-log-out h-[4.5vw] md:h-[1.5vw]">
+                        <path d="m16 17 5-5-5-5" />
+                        <path d="M21 12H9" />
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    </svg> Logout</a>
+            </div>
+            <div class="w-full flex  gap-[1vw] pb-[3vw] p-[3vw] md:p-[1vw]">
+                <img class=" h-[15vw] md:h-[4vw]" src="/images/secure.png" alt="">
+                <div>
+                    <h2 class="text-[3.3vw] md:text-[1vw] font-medium">Secure, Reliable and Transparent System</h2>
+                    <p class=" text-[2.7vw] md:text-[0.8vw]">Goverment of Uttar Pradesh</p>
+                </div>
+            </div>
+        </div>
+        <div
+            class=" w-4/5 h-[135vw] hidden  md:flex md:h-auto md:w-1/5 absolute md:relative flex flex-col justify-between bg-white">
+            <div class="w-full  flex gap-[1.6vw] md:gap-[0.6vw] p-[1.6vw] md:p-[0.9vw] flex-col">
+
+                <div class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex md:hidden gap-[2vw] md:gap-[0.5vw] items-center"
+                    id="close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-arrow-left-from-line-icon lucide-arrow-left-from-line h-[4.8] ">
+                        <path d="m9 6-6 6 6 6" />
+                        <path d="M3 12h14" />
+                        <path d="M21 19V5" />
+                    </svg> Back
+                </div>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw]  text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/dashboard" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-house-icon lucide-house h-[4.5vw] md:h-[1.5vw]">
+                        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                        <path
+                            d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    </svg> Dashboard</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/applications" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-file-user-icon lucide-file-user h-[4.5vw] md:h-[1.5vw]">
+                        <path
+                            d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                        <path d="M16 22a4 4 0 0 0-8 0" />
+                        <circle cx="12" cy="15" r="3" />
+                    </svg> My Applications</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] bg-blue-100 text-blue-700 md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/vehicle" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-file-user-icon lucide-file-user h-[4.5vw] md:h-[1.5vw]">
+                        <path
+                            d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                        <path d="M16 22a4 4 0 0 0-8 0" />
+                        <circle cx="12" cy="15" r="3" />
+                    </svg> Apply for Registration</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/myVehicles" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-car-front-icon lucide-car-front h-[4.5vw] md:h-[1.5vw]">
+                        <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+                        <path d="M7 14h.01" />
+                        <path d="M17 14h.01" />
+                        <rect width="18" height="8" x="3" y="10" rx="2" />
+                        <path d="M5 18v2" />
+                        <path d="M19 18v2" />
+                    </svg> My Vehicle</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/notifications" onclick="goPage(event,this)"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-bell-icon lucide-bell h-[4.5vw] md:h-[1.5vw]">
+                        <path d="M10.268 21a2 2 0 0 0 3.464 0" />
+                        <path
+                            d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326" />
+                    </svg> Notification</a>
+                <a class="hover:bg-blue-50  p-[1.5vw] md:p-[0.9vw] text-[4vw] md:text-[1.2vw] rounded-md flex gap-[2vw] md:gap-[0.5vw] items-center"
+                    href="/user/logout"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-log-out-icon lucide-log-out h-[4.5vw] md:h-[1.5vw]">
+                        <path d="m16 17 5-5-5-5" />
+                        <path d="M21 12H9" />
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                    </svg> Logout</a>
+            </div>
+            <div class="w-full flex  gap-[1vw] pb-[3vw] p-[3vw] md:p-[1vw]">
+                <img class=" h-[15vw] md:h-[4vw]" src="/images/secure.png" alt="">
+                <div>
+                    <h2 class="text-[3.3vw] md:text-[1vw] font-medium">Secure, Reliable and Transparent System</h2>
+                    <p class=" text-[2.7vw] md:text-[0.8vw]">Goverment of Uttar Pradesh</p>
+                </div>
+            </div>
+        </div>
+        <div class=" w-full md:w-4/5 flex flex-col p-[1.9vw] md:p-[1.3vw]">
+            <div class="w-full h-[13vw] pl-[2vw] md:pl-0 md:h-[5vw] ">
+                <h1 class=" text-[4.2vw] md:text-[1.6vw] font-medium">Apply for New Vehicle Registration</h1>
+                <p class=" text-[2.5vw] md:text-[1vw]">Fill in the details below to apply for a new vehicle registration
+                </p>
+            </div>
+
+            <% if(user.profilepic.data){%>
+
+            <form action="/user/vehicle" method="post" enctype="multipart/form-data"
+                class="w-full rounded-md shadow-sm shadow-gray-300 flex flex-col bg-white p-[2.1vw] md:p-[1.3vw]">
+                <h2 class=" text-[3vw] md:text-[1.1vw] font-medium flex items-center gap-[0.8vw] md:gap-[0.6vw]"> <svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-file-user-icon lucide-file-user h-[3.2vw] md:h-[1.5vw] text-blue-500">
+                        <path
+                            d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                        <path d="M16 22a4 4 0 0 0-8 0" />
+                        <circle cx="12" cy="15" r="3" />
+                    </svg> Vehicle Registration Details</h2>
+                <div class="w-full flex  flex-wrap">
+                    <div class="w-1/2 md:w-1/3 flex flex-col mt-[1vw] md:mt-0 p-[1vw]">
+                        <p class=" text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Vehicle Type</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-car-front-icon lucide-car-front text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+                                <path d="M7 14h.01" />
+                                <path d="M17 14h.01" />
+                                <rect width="18" height="8" x="3" y="10" rx="2" />
+                                <path d="M5 18v2" />
+                                <path d="M19 18v2" />
+                            </svg>
+
+                            <select required
+                                class="w-full  pl-[1vw] text-gray-500 text-[2.2vw] md:text-[1.1vw] outline-none"
+                                onchange="this.classList.remove('text-gray-500'); this.classList.add('text-black')"
+                                name="vhType" id="">
+                                <option value="" selected disabled>Select Vehicle Type</option>
+
+                                <option class="text-black" value="Motorcycle">Motorcycle</option>
+                                <option class="text-black" value="Scooter">Scooter</option>
+                                <option class="text-black" value="Car">Car</option>
+                                <option class="text-black" value="SUV">SUV</option>
+                                <option class="text-black" value="Jeep">Jeep</option>
+                                <option class="text-black" value="Pickup">Pickup</option>
+                                <option class="text-black" value="Van">Van</option>
+                                <option class="text-black" value="Auto Rickshaw">Auto Rickshaw</option>
+                                <option class="text-black" value="Bus">Bus</option>
+                                <option class="text-black" value="Truck">Truck</option>
+                                <option class="text-black" value="Tractor">Tractor</option>
+                                <option class="text-black" value="Trailer">Trailer</option>
+                                <option class="text-black" value="Ambulance">Ambulance</option>
+                                <option class="text-black" value="Fire Engine">Fire Engine</option>
+                                <option class="text-black" value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w-1/2 md:w-1/3 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]"> Manufacturer</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-factory-icon lucide-factory text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <path d="M12 16h.01" />
+                                <path d="M16 16h.01" />
+                                <path
+                                    d="M3 19a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.5a.5.5 0 0 0-.769-.422l-4.462 2.844A.5.5 0 0 1 15 10.5v-2a.5.5 0 0 0-.769-.422L9.77 10.922A.5.5 0 0 1 9 10.5V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z" />
+                                <path d="M8 16h.01" />
+                            </svg>
+
+                            <select required
+                                class="w-full  pl-[1vw] text-[2.2vw] md:text-[1.1vw] text-gray-500  outline-none"
+                                onchange="this.classList.remove('text-gray-500'); this.classList.add('text-black')"
+                                name="manufacturer" id="">
+                                <option class="text-gray-500" value="" selected disabled>Select Manufacturer</option>
+
+                                <!-- Two Wheeler -->
+                                <option class="text-black" value="Hero">Hero</option>
+                                <option class="text-black" value="Honda">Honda</option>
+                                <option class="text-black" value="TVS">TVS</option>
+                                <option class="text-black" value="Bajaj">Bajaj</option>
+                                <option class="text-black" value="Royal Enfield">Royal Enfield</option>
+                                <option class="text-black" value="Yamaha">Yamaha</option>
+                                <option class="text-black" value="Suzuki">Suzuki</option>
+                                <option class="text-black" value="KTM">KTM</option>
+                                <option class="text-black" value="Jawa">Jawa</option>
+                                <option class="text-black" value="Yezdi">Yezdi</option>
+
+                                <!-- Car -->
+                                <option class="text-black" value="Maruti Suzuki">Maruti Suzuki</option>
+                                <option class="text-black" value="Hyundai">Hyundai</option>
+                                <option class="text-black" value="Tata">Tata</option>
+                                <option class="text-black" value="Mahindra">Mahindra</option>
+                                <option class="text-black" value="Toyota">Toyota</option>
+                                <option class="text-black" value="Honda Cars">Honda Cars</option>
+                                <option class="text-black" value="Kia">Kia</option>
+                                <option class="text-black" value="MG">MG</option>
+                                <option class="text-black" value="Skoda">Skoda</option>
+                                <option class="text-black" value="Volkswagen">Volkswagen</option>
+                                <option class="text-black" value="Renault">Renault</option>
+                                <option class="text-black" value="Nissan">Nissan</option>
+                                <option class="text-black" value="BMW">BMW</option>
+                                <option class="text-black" value="Mercedes-Benz">Mercedes-Benz</option>
+                                <option class="text-black" value="Audi">Audi</option>
+                                <option class="text-black" value="Lexus">Lexus</option>
+                                <option class="text-black" value="Volvo">Volvo</option>
+
+                                <!-- Commercial -->
+                                <option class="text-black" value="Ashok Leyland">Ashok Leyland</option>
+                                <option class="text-black" value="Eicher">Eicher</option>
+                                <option class="text-black" value="Force Motors">Force Motors</option>
+                                <option class="text-black" value="BharatBenz">BharatBenz</option>
+
+                                <!-- Tractor -->
+                                <option class="text-black" value="Sonalika">Sonalika</option>
+                                <option class="text-black" value="John Deere">John Deere</option>
+                                <option class="text-black" value="New Holland">New Holland</option>
+                                <option class="text-black" value="Kubota">Kubota</option>
+
+                                <option class="text-black" class="text-black" value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="w-full md:w-1/3 mt-[1vw] md:mt-0 flex flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Vehicle Model</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-car-front-icon lucide-car-front text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.646 5H8.4a2 2 0 0 0-1.903 1.257L5 10 3 8" />
+                                <path d="M7 14h.01" />
+                                <path d="M17 14h.01" />
+                                <rect width="18" height="8" x="3" y="10" rx="2" />
+                                <path d="M5 18v2" />
+                                <path d="M19 18v2" />
+                            </svg>
+                            <input required class="w-full  pl-[1vw] text-[2.2vw] md:text-[1.1vw] outline-none"
+                                placeholder="Vehicle Model" type="text" name="vhModel">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="w-full flex ">
+                    <div class="w-1/3 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Vehicle Number</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-hash-icon lucide-hash text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <line x1="4" x2="20" y1="9" y2="9" />
+                                <line x1="4" x2="20" y1="15" y2="15" />
+                                <line x1="10" x2="8" y1="3" y2="21" />
+                                <line x1="16" x2="14" y1="3" y2="21" />
+                            </svg>
+                            <input required class="w-full  pl-[1vw] uppercase text-[2.2vw] md:text-[1.1vw] outline-none"
+                                placeholder="Vehicle Number" type="text" name="vhNum">
+                        </div>
+                    </div>
+                    <div class="w-1/3 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]"> Hypothecation (HP)
+                        </p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-tag-icon lucide-tag text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <path
+                                    d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z" />
+                                <circle cx="7.5" cy="7.5" r=".5" fill="currentColor" />
+                            </svg>
+
+                            <select required
+                                class="w-full  pl-[1vw] text-[2.2vw] md:text-[1.1vw] text-gray-500 outline-none"
+                                onchange="this.classList.remove('text-gray-500'); this.classList.add('text-black')"
+                                name="hp" id="">
+                                <option class="text-gray-500" value="" selected disabled>Yes/No</option>
+
+                                <!-- Two Wheeler -->
+                                <option class="text-black" value="Yes">Yes</option>
+                                <option class="text-black" class="text-black" value="No">No</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="w-1/3 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Ownership NO.(ONo)
+                        </p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-circle-user-icon lucide-circle-user text-gray-500 h-[3vw] md:h-[1.7vw]">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="10" r="3" />
+                                <path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662" />
+                            </svg>
+                            <input required class="w-full  pl-[1vw] text-[2.2vw] md:text-[1.1vw] outline-none"
+                                placeholder="Enter Ownership number" type="number" name="ono">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="w-full flex ">
+                    <div class="w-full flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Address</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw]  border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-map-pin-house-icon lucide-map-pin-house text-gray-500 h-[3vw] md:h-[1.7vw] ">
+                                <path
+                                    d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
+                                <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
+                                <path d="M18 22v-3" />
+                                <circle cx="10" cy="10" r="3" />
+                            </svg>
+                            <!-- <input class="w-full  pl-[1vw]  text-[1.1vw] outline-none" placeholder="Enter Complete Address"
+                                type="text"> -->
+
+                            <textarea required
+                                class="w-full  pl-[1vw]  text-[2.2vw] md:text-[1.1vw] outline-none resize-none"
+                                placeholder="Enter Complete Address" name="add" id=""></textarea>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+                <div class="w-full flex ">
+                    <div class="w-1/2 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]">Fuel Type</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-droplet-icon lucide-droplet h-[3vw] md:h-[1.7vw] text-gray-500">
+                                <path
+                                    d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" />
+                            </svg>
+
+                            <select required
+                                class="w-full  pl-[1vw] text-gray-500 text-[2.2vw] md:text-[1.1vw] outline-none"
+                                onchange="this.classList.remove('text-gray-500'); this.classList.add('text-black')"
+                                name="fuel" id="">
+                                <option value="" selected disabled>Select Fuel Type</option>
+
+                                <option class="text-black" value="Petrol">Petrol</option>
+                                <option class="text-black" value="Diesel">Diesel</option>
+                                <option class="text-black" value="EV">EV</option>hover:bg-blue-50 
+                                <option class="text-black" value="CNG">CNG</option>
+                                <option class="text-black" value="Petrol+CNG">Petrol+CNG</option>
+                                <option class="text-black" value="Hybrid">Hybrid</option>
+                                <option class="text-black" value="LPG">LPG</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="w-1/2 flex mt-[1vw] md:mt-0 flex-col p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.2vw]"> Nearby RTO</p>
+                        <div
+                            class="w-full flex border-1 p-[1.2vw] md:p-[0.5vw] items-center border-zinc-200 rounded-sm md:rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-building-icon lucide-building h-[3vw] md:h-[1.7vw] text-gray-500">
+                                <path d="M12 10h.01" />
+                                <path d="M12 14h.01" />
+                                <path d="M12 6h.01" />
+                                <path d="M16 10h.01" />
+                                <path d="M16 14h.01" />
+                                <path d="M16 6h.01" />
+                                <path d="M8 10h.01" />
+                                <path d="M8 14h.01" />
+                                <path d="M8 6h.01" />
+                                <path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+                                <rect x="4" y="2" width="16" height="20" rx="2" />
+                            </svg>
+
+                            <select required
+                                class="w-full  pl-[1vw] text-[2.2vw] md:text-[1.1vw] text-gray-500  outline-none"
+                                onchange="this.classList.remove('text-gray-500'); this.classList.add('text-black')"
+                                name="rto" id="">
+                                <option class="text-gray-500" value="" selected disabled>Select nearby RTO</option>
+
+                                <!-- Two Wheeler -->
+                                <option class=" text-black " value="UP-11">UP-11 - Saharanpur</option>
+                                <option class=" text-black " value="UP-12">UP-12 - Muzaffarnagar</option>
+                                <option class=" text-black " value="UP-13">UP-13 - Bulandshahr</option>
+                                <option class=" text-black " value="UP-14">UP-14 - Ghaziabad</option>
+                                <option class=" text-black " value="UP-15">UP-15 - Meerut</option>
+                                <option class=" text-black " value="UP-16">UP-16 - Noida (Gautam Buddha Nagar)</option>
+                                <option class=" text-black " value="UP-17">UP-17 - Baghpat</option>
+                                <option class=" text-black " value="UP-18">UP-18 - Greater Noida</option>
+                                <option class=" text-black " value="UP-19">UP-19 - Shamli</option>
+                                <option class=" text-black " value="UP-20">UP-20 - Bijnor</option>
+                                <option class=" text-black " value="UP-21">UP-21 - Moradabad</option>
+                                <option class=" text-black " value="UP-22">UP-22 - Rampur</option>
+                                <option class=" text-black " value="UP-23">UP-23 - Amroha</option>
+                                <option class=" text-black " value="UP-24">UP-24 - Budaun</option>
+                                <option class=" text-black " value="UP-25">UP-25 - Bareilly</option>
+                                <option class=" text-black " value="UP-26">UP-26 - Pilibhit</option>
+                                <option class=" text-black " value="UP-27">UP-27 - Shahjahanpur</option>
+                                <option class=" text-black " value="UP-28">UP-28 - Ayodhya (Faizabad)</option>
+                                <option class=" text-black " value="UP-30">UP-30 - Hardoi</option>
+                                <option class=" text-black " value="UP-31">UP-31 - Lakhimpur Kheri</option>
+                                <option class=" text-black " value="UP-32">UP-32 - Lucknow</option>
+                                <option class=" text-black " value="UP-33">UP-33 - Raebareli</option>
+                                <option class=" text-black " value="UP-34">UP-34 - Sitapur</option>
+                                <option class=" text-black " value="UP-35">UP-35 - Unnao</option>
+                                <option class=" text-black " value="UP-36">UP-36 - Amethi</option>
+                                <option class=" text-black " value="UP-37">UP-37 - Hapur</option>
+                                <option class=" text-black " value="UP-38">UP-38 - Sambhal</option>
+                                <option class=" text-black " value="UP-40">UP-40 - Bahraich</option>
+                                <option class=" text-black " value="UP-41">UP-41 - Barabanki</option>
+                                <option class=" text-black " value="UP-42">UP-42 - Ayodhya (Rural)</option>
+                                <option class=" text-black " value="UP-43">UP-43 - Gonda</option>
+                                <option class=" text-black " value="UP-44">UP-44 - Sultanpur</option>
+                                <option class=" text-black " value="UP-45">UP-45 - Ambedkar Nagar</option>
+                                <option class=" text-black " value="UP-46">UP-46 - Shravasti</option>
+                                <option class=" text-black " value="UP-47">UP-47 - Balrampur</option>
+                                <option class=" text-black " value="UP-50">UP-50 - Azamgarh</option>
+                                <option class=" text-black " value="UP-51">UP-51 - Basti</option>
+                                <option class=" text-black " value="UP-52">UP-52 - Deoria</option>
+                                <option class=" text-black " value="UP-53">UP-53 - Gorakhpur</option>
+                                <option class=" text-black " value="UP-54">UP-54 - Mau</option>
+                                <option class=" text-black " value="UP-55">UP-55 - Siddharthnagar</option>
+                                <option class=" text-black " value="UP-56">UP-56 - Maharajganj</option>
+                                <option class=" text-black " value="UP-57">UP-57 - Padrauna (Kushinagar)</option>
+                                <option class=" text-black " value="UP-58">UP-58 - Sant Kabir Nagar</option>
+                                <option class=" text-black " value="UP-60">UP-60 - Ballia</option>
+                                <option class=" text-black " value="UP-61">UP-61 - Ghazipur</option>
+                                <option class=" text-black " value="UP-62">UP-62 - Jaunpur</option>
+                                <option class=" text-black " value="UP-63">UP-63 - Mirzapur</option>
+                                <option class=" text-black " value="UP-64">UP-64 - Sonbhadra</option>
+                                <option class=" text-black " value="UP-65">UP-65 - Varanasi</option>
+                                <option class=" text-black " value="UP-66">UP-66 - Bhadohi</option>
+                                <option class=" text-black " value="UP-67">UP-67 - Chandauli</option>
+                                <option class=" text-black " value="UP-70">UP-70 - Prayagraj (Allahabad)</option>
+                                <option class=" text-black " value="UP-71">UP-71 - Fatehpur</option>
+                                <option class=" text-black " value="UP-72">UP-72 - Pratapgarh</option>
+                                <option class=" text-black " value="UP-73">UP-73 - Kaushambi</option>
+                                <option class=" text-black " value="UP-74">UP-74 - Kannauj</option>
+                                <option class=" text-black " value="UP-75">UP-75 - Etawah</option>
+                                <option class=" text-black " value="UP-76">UP-76 - Farrukhabad</option>
+                                <option class=" text-black " value="UP-77">UP-77 - Kanpur Dehat</option>
+                                <option class=" text-black " value="UP-78">UP-78 - Kanpur Nagar</option>
+                                <option class=" text-black " value="UP-79">UP-79 - Auraiya</option>
+                                <option class=" text-black " value="UP-80">UP-80 - Agra</option>
+                                <option class=" text-black " value="UP-81">UP-81 - Aligarh</option>
+                                <option class=" text-black " value="UP-82">UP-82 - Etah</option>
+                                <option class=" text-black " value="UP-83">UP-83 - Firozabad</option>
+                                <option class=" text-black " value="UP-84">UP-84 - Mainpuri</option>
+                                <option class=" text-black " value="UP-85">UP-85 - Mathura</option>
+                                <option class=" text-black " value="UP-86">UP-86 - Hathras</option>
+                                <option class=" text-black " value="UP-87">UP-87 - Kasganj</option>
+                                <option class=" text-black " value="UP-90">UP-90 - Banda</option>
+                                <option class=" text-black " value="UP-91">UP-91 - Hamirpur</option>
+                                <option class=" text-black " value="UP-92">UP-92 - Jalaun (Orai)</option>
+                                <option class=" text-black " value="UP-93">UP-93 - Jhansi</option>
+                                <option class=" text-black " value="UP-94">UP-94 - Lalitpur</option>
+                                <option class=" text-black " value="UP-95">UP-95 - Mahoba</option>
+                                <option class=" text-black " value="UP-96">UP-96 - Chitrakoot</option>
+                                <option class=" text-black " value="UP-141">UP-141 - Kaushambi (Delhi NCR Border)
+                                </option>
+                                <option class=" text-black " value="UP-161">UP-161 - Noida Commercial</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+
+                <div class="w-full flex flex-col md:flex-row">
+                    <div class=" w-full md:w-1/3 flex mt-[1vw] md:mt-0 flex-col p-[2vw] md:p-[1vw]">
+                        <p class="text-[2.7vw] md:text-[1vw] font-medium pb-[0.7vw] md:pb-[0.4vw]">Upload Vehicle Image
+                        </p>
+
+                        <label for="vimg" id="dropArea"
+                            class="w-full h-[29vw] md:h-[16vw] bg-zinc-100 cursor-pointer flex flex-col border-1 bg-cover bg-center p-[1vw] mt-[1vw] md:mt-0 md:p-[0.5vw] items-center justify-center border-zinc-200 rounded-md">
+
+                            <input required id="vimg" class="w-full hidden pl-[1vw] uppercase text-[1.1vw] outline-none"
+                                placeholder="Vehicle Number" accept="image/*" type="file" name="vhImg">
+
+                            <svg xmlns="http://www.w3.org/2000/svg" id="imgView" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-cloud-upload-icon lucide-cloud-upload text-blue-600 h-[10vw] md:h-[5vw]">
+                                <path d="M12 13v8" />
+                                <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242" />
+                                <path d="m8 17 4-4 4 4" />
+                            </svg>
+                            <p class=" text-[2.7vw] md:text-[1.2vw]">Click here to upload image</p>
+                        </label>
+                    </div>
+                    <div class=" w-full md:w-2/3 flex flex-col items-center pt-[3vw] ">
+
+                        <div
+                            class=" w-19/20 md:w-full bg-blue-50 flex flex-col h-[21vw] md:h-[16vw] border-1 p-[4vw] md:p-[3vw]  justify-center border-zinc-200 rounded-md">
+                            <h2 class="text-[3.5vw] md:text-[1.5vw] font-medium">Image Guidline</h2>
+                            <ul>
+                                <li class="text-[2.3vw] md:text-[1vw] pl-[1vw]">Upload Clear image of the vehicle</li>
+                                <li class="text-[2.3vw] md:text-[1vw] pl-[1vw]">Image should be in JPG,PNG and JPEG
+                                    format</li>
+                                <li class="text-[2.3vw] md:text-[1vw] pl-[1vw]">Maximum file size is 5MB</li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <div
+                    class="w-full flex flex-col md:flex-row items-center md:items-stretch mt-[2.3vw] md:mt-0 gap-[1vw] pl-0 md:pl-[1vw]">
+                    <div
+                        class=" w-19/20 md:w-full flex gap-[1vw] items-center pl-[1vw] p-[2vw] md:p-1 bg-blue-50 rounded-md">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-circle-alert-icon lucide-circle-alert text-blue-600 h-[3.3vw] md:h-[1.5vw]">
+                            <circle cx="12" cy="12" r="10" />
+                            <line x1="12" x2="12" y1="8" y2="12" />
+                            <line x1="12" x2="12.01" y1="16" y2="16" />
+                        </svg>
+                        <p class=" text-[2.6vw] md:text-[1vw]"> <span class="text-blue-700"> Note:</span> Please ensure
+                            all the details
+                            entered are correct. You can't edit these details after submission</p>
+                    </div>
+                    <input
+                        class="p-[2vw] md:p-[1vw] w-19/20 md:w-auto mt-[2vw] md:mt-0 cursor-pointer text-[2.7vw] md:text-[1vw] bg-blue-600 rounded-md font-medium text-white"
+                        type="submit" value="Submit Application">
+
+                </div>
+
+
+
+                <!-- --------------------------------------------------------------------------------------- -->
+            </form>
+            <%} else{ %>
+                <div class="w-full bg-white p-[4vw] md:p-[2vw] rounded-md">
+                    <p class=" text-[3.1vw] md:text-[1.2vw] flex gap-[2vw] md:gap-[1vw] md:items-center"> <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-warning-icon lucide-message-circle-warning h-[5vw] md:h-[1.5vw] text-red-700"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/><path d="M12 8v4"/><path d="M12 16h.01"/></svg> First You need to complete your profile. After profile completion you can register your vehicle</p>
+                </div>
+
+            <%} %>
+
+
+        </div>
+
+    </section>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"
+        integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        function goPage(event, element) {
+
+            event.preventDefault();
+
+            window.location.replace(element.href);
+
+        }
+    </script>
+    <script src="/scripts/sidebar.js"></script>
+    <script src="/scripts/imgSelect.js"></script>
+</body>
+
+</html>

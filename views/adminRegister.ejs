@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+
+            font-family: "Inter", sans-serif;
+
+        }
+        .backsec {
+            background: url("/public/images/bgfull.png") no-repeat center center/cover;
+            position: relative;
+
+        }
+
+        .texo {
+            text-shadow: 0 0 60px white;
+        }
+
+        .gradi {
+            background: linear-gradient(to right, rgba(243, 243, 243, 0.616), Transparent);
+
+        }
+    </style>
+</head>
+
+<body class="">
+    <nav class=" h-[19vw] md:h-[6vw] flex items-center justify-between relative bg-white">
+        <div class="flex gap-2 p-2 md:p-[0.5vw] items-center h-full">
+            <img class="h-full" src="/images/UPLogo.png" alt="">
+            <div>
+                <h3 class="text-[4vw] md:text-[1.8vw] tracking-tight sm:leading-tight font-medium">Uttar Pradesh State
+                    Transport</h3>
+                <p class=" text-xs md:text-[1vw]">Vehical Registration Portal</p>
+            </div>
+        </div>
+        <div class="h-full gap-4 pr-5 flex items-center">
+            <div class="h-full hidden md:flex items-center  ">
+                <img class="h-7/10" src="/images/secure.png" alt="">
+                <div class="h-full flex flex-col  justify-center ">
+                    <h2 class=" text-sm font-medium border-r-3 border-zinc-300">Official Portal</h2>
+                    <p class="text-xs border-r-3 border-zinc-300 pr-3">Goverment of Uttar Pradesh</p>
+                </div>
+            </div>
+            <div class="h-full flex items-center">
+                <img class=" h-6/10 md:h-7/10" src="/images/support.png" alt="">
+                <div class="h-full flex flex-col  justify-center">
+                    <h2 class=" text-sm hidden md:flex font-medium">Need Help ?</h2>
+                    <p class="text-xs hidden md:flex ">Support and FAQ</p>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class=" h-[135vw] md:h-screen bg-[url('/images/bgfull.png')] bg-cover bg-[position:12%_center]">
+        <form id="form" class="h-[100%]  flex flex-col md:flex-row ">
+            <div class="gradi  h-[100%] width-full md:w-1/3 flex flex-col pl-[9vw] md:pl-40 pt-[10vw] md:pt-30 pr-9 md:pr-0">
+
+
+                <h2 class=" text-[6vw] md:text-[2.2vw] text-blue-800 font-bold texo">Create Your Account</h2>
+
+
+                <p class="texo text-[3vw] md:text-[1.2vw] flex font-medium">Register to access vehicle registration
+                    services and
+                    track your application status</p>
+            </div>
+            <div class="h-[100%]  w-full md:w-2/3 flex hidden md:flex items-center justify-center p-[2vw]  ">
+                <div class="w-8/10 h-full flex flex-col items-center p-[2vw] justify-center rounded-2xl bg-white">
+                    <div class=" flex gap-[1.5vw]">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-round-plus-icon lucide-user-round-plus h-[5vw] text-blue-800 bg-blue-100 p-[1.1vw] rounded-full">
+                            <path d="M2 21a8 8 0 0 1 13.292-6" />
+                            <circle cx="10" cy="8" r="5" />
+                            <path d="M19 16v6" />
+                            <path d="M22 19h-6" />
+                        </svg>
+                        <div>
+                            <h2 class="text-[1.8vw] font-medium">Create New Account</h2>
+                            <p class=" text-[1vw] ">Fill in your details to get started</p>
+                        </div>
+                    </div>
+
+                    <div class="w-full gap-[2vw] flex mt-[2vw]">
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Full Name</p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-user-round-icon lucide-user-round h-[1.8vw] text-gray-600">
+                                    <circle cx="12" cy="8" r="5" />
+                                    <path d="M20 21a8 8 0 0 0-16 0" />
+                                </svg>
+                                <input required class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Enter your full name" type="text" id="fullname" name="fullname">
+
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Username</p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-user-round-icon lucide-user-round h-[1.8vw] text-gray-600">
+                                    <circle cx="12" cy="8" r="5" />
+                                    <path d="M20 21a8 8 0 0 0-16 0" />
+                                </svg>
+                                <input required class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Enter your username" type="text" id="username" name="username">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="w-full flex flex-col mt-[1vw]">
+                        <p class="text-[1.1vw] font-medium">Email Address</p>
+                        <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-mail-icon lucide-mail h-[1.8vw] text-gray-600">
+                                <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                                <rect x="2" y="4" width="20" height="16" rx="2" />
+                            </svg>
+                            <input required class="w-full text-[1vw] outline-none pl-[0.4vw]" placeholder="Enter your email"
+                                type="email" name="email" id="email">
+
+                        </div>
+                    </div>
+
+                    <div class="w-full gap-[2vw] flex mt-[1vw]">
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Mobile Number</p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-phone-icon lucide-phone h-[1.8vw] text-gray-600">
+                                    <path
+                                        d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                                </svg>
+                                <input required class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Enter your mobile number" id="mob" type="tel" name="mob">
+
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Date of Birth</p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-calendar-days-icon lucide-calendar-days h-[1.8vw] text-gray-600">
+                                    <path d="M8 2v4" />
+                                    <path d="M16 2v4" />
+                                    <rect width="18" height="18" x="3" y="4" rx="2" />
+                                    <path d="M3 10h18" />
+                                    <path d="M8 14h.01" />
+                                    <path d="M12 14h.01" />
+                                    <path d="M16 14h.01" />
+                                    <path d="M8 18h.01" />
+                                    <path d="M12 18h.01" />
+                                    <path d="M16 18h.01" />
+                                </svg>
+                                <input required class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Enter your date of birth" type="date" id="dob" name="dob">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="w-full gap-[2vw] flex mt-[1vw]">
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Password</p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-rectangle-ellipsis-icon lucide-rectangle-ellipsis h-[1.8vw] text-gray-600">
+                                    <rect width="20" height="12" x="2" y="6" rx="2" />
+                                    <path d="M12 12h.01" />
+                                    <path d="M17 12h.01" />
+                                    <path d="M7 12h.01" />
+                                </svg>
+                                <input required id="password" class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Create a password" type="password" name="password">
+
+                            </div>
+                        </div>
+                        <div class="w-1/2 flex flex-col">
+                            <p class="text-[1.1vw] font-medium">Confirm Password <span class="text-[0.8vw]"
+                                    id="message"></span></p>
+                            <div class="flex border-1 border-zinc-300 items-center p-[0.5vw] rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="lucide lucide-rectangle-ellipsis-icon lucide-rectangle-ellipsis h-[1.8vw] text-gray-600">
+                                    <rect width="20" height="12" x="2" y="6" rx="2" />
+                                    <path d="M12 12h.01" />
+                                    <path d="M17 12h.01" />
+                                    <path d="M7 12h.01" />
+                                </svg>
+                                <input required id="confirmPassword" class="w-full text-[1vw] outline-none pl-[0.4vw]"
+                                    placeholder="Confirm your password" type="password">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="w-full flex mt-[1vw] gap-[1vw]">
+                        <input id="agree" type="checkbox">
+                        <p class="text-[1vw]">I agree to the Terms & Conditions and Privacy Policy</p>
+                    </div>
+
+
+
+
+                    <input
+                        class="w-full bg-blue-700 p-[1vw] text-[1vw] outline-none pl-[0.4vw] text-white rounded-md mt-[1vw] text-[1.5vw] font-medium cursor-pointer"
+                        value="Create Account" id="submitBtn" type="submit">
+
+
+
+
+
+                </div>
+
+            </div>
+
+
+
+        </form>
+
+        
+    </section>
+
+
+    <div class="h-[120vw]  w-full md:w-2/3 flex  md:hidden items-center justify-center -mt-[100vw] p-[0.5vw]  ">
+        <form id="form1"
+            class="w-14/15 h-full flex flex-col items-center p-[5vw] shadow-xl shadow-gray-300 justify-center rounded-2xl bg-white">
+            <div class=" flex flex-col items-center gap-[1.5vw]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="lucide lucide-user-round-plus-icon lucide-user-round-plus h-[14vw] w-[14vw] text-blue-800 bg-blue-100 p-[2.5vw] rounded-full block">
+                    <path d="M2 21a8 8 0 0 1 13.292-6" />
+                    <circle cx="10" cy="8" r="5" />
+                    <path d="M19 16v6" />
+                    <path d="M22 19h-6" />
+                </svg>
+                <div>
+                    <h2 class="text-[6vw] font-medium">Create New Account</h2>
+                    <p class=" text-[4vw] text-gray-800">Fill in your details to get started</p>
+                </div>
+            </div>
+
+            <div class="w-full gap-[2vw] flex mt-[5vw]">
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Full Name</p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-round-icon lucide-user-round h-[3.2vw] text-gray-600">
+                            <circle cx="12" cy="8" r="5" />
+                            <path d="M20 21a8 8 0 0 0-16 0" />
+                        </svg>
+                        <input required class="w-full text-[3vw] outline-none pl-[1vw]" placeholder="Enter your full name"
+                            type="text" name="fullname" id="fullname1">
+
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Username</p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-round-icon lucide-user-round h-[3.2vw] text-gray-600">
+                            <circle cx="12" cy="8" r="5" />
+                            <path d="M20 21a8 8 0 0 0-16 0" />
+                        </svg>
+                        <input required class="w-full text-[3vw] outline-none pl-[1vw]" placeholder="Enter your username"
+                            type="text" name="username" id="username1">
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="w-full flex flex-col mt-[3vw]">
+                <p class="text-[2.7vw] font-medium mb-[0.6vw]">Email Address</p>
+                <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-mail-icon lucide-mail h-[3.2vw] text-gray-600">
+                        <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                    </svg>
+                    <input required class="w-full text-[3vw] outline-none pl-[1vw]" placeholder="Enter your email"
+                        type="email" name="email" id="email1">
+
+                </div>
+            </div>
+
+            <div class="w-full gap-[2vw] flex mt-[3vw]">
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Mobile Number</p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-phone-icon lucide-phone h-[3.2vw] text-gray-600">
+                            <path
+                                d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
+                        </svg>
+                        <input required class="w-full text-[3vw] outline-none pl-[1vw]" placeholder="Enter your mobile number"
+                            type="tel" name="mob" id="mob1">
+
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Date of Birth</p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-calendar-days-icon lucide-calendar-days h-[3.2vw] text-gray-600">
+                            <path d="M8 2v4" />
+                            <path d="M16 2v4" />
+                            <rect width="18" height="18" x="3" y="4" rx="2" />
+                            <path d="M3 10h18" />
+                            <path d="M8 14h.01" />
+                            <path d="M12 14h.01" />
+                            <path d="M16 14h.01" />
+                            <path d="M8 18h.01" />
+                            <path d="M12 18h.01" />
+                            <path d="M16 18h.01" />
+                        </svg>
+                        <input required class="w-full text-[3vw] outline-none pl-[1vw]" placeholder="Enter your date of birth"
+                            type="date" name="dob" id="dob1">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="w-full gap-[2vw] flex mt-[3vw]">
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Password</p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-rectangle-ellipsis-icon lucide-rectangle-ellipsis h-[3.2vw] text-gray-600">
+                            <rect width="20" height="12" x="2" y="6" rx="2" />
+                            <path d="M12 12h.01" />
+                            <path d="M17 12h.01" />
+                            <path d="M7 12h.01" />
+                        </svg>
+                        <input required id="password1" class="w-full text-[3vw] outline-none pl-[1vw]"
+                            placeholder="Create a password" type="password" name="password" >
+
+                    </div>
+                </div>
+                <div class="w-1/2 flex flex-col">
+                    <p class="text-[2.7vw] font-medium mb-[0.6vw]">Confirm Password <span class="text-[2vw]"
+                            id="message1"></span></p>
+                    <div class="flex border-1 border-zinc-300 items-center p-[1.2vw] rounded-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-rectangle-ellipsis-icon lucide-rectangle-ellipsis h-[3.2vw] text-gray-600">
+                            <rect width="20" height="12" x="2" y="6" rx="2" />
+                            <path d="M12 12h.01" />
+                            <path d="M17 12h.01" />
+                            <path d="M7 12h.01" />
+                        </svg>
+                        <input required id="confirmPassword1" class="w-full text-[3vw] outline-none pl-[1vw]"
+                            placeholder="Confirm your password" type="password" >
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="w-full flex mt-[3vw] mb-[2vw] gap-[1.4vw]">
+                <input id="agree1" type="checkbox">
+                <p class="text-[2.7vw]">I agree to the Terms & Conditions and Privacy Policy</p>
+            </div>
+
+
+
+
+            <input
+                class="w-full bg-blue-700 p-[2vw] text-[3vw] outline-none pl-[0.4vw] text-white rounded-md mt-[1.5vw]  font-medium cursor-pointer"
+                value="Create Account" id="submitBtn1" type="submit">
+
+
+
+
+
+        </form>
+
+        
+
+    </div>
+    <!-- ------------------------------------- -->
+
+
+
+
+    <div class="w-[100%] flex items-center p-[4vw] md:p-0 justify-center">
+        <div
+            class="w-[100%]  md:w-10/12 bg-white overflow-hidden shadow-[0_0_15px_0_rgba(0,0,0,0.5)]  md:m-10 -mt-[2vw] md:mt-5 items-center flex flex-col md:flex-row rounded-2xl md:rounded-3xl">
+            <div class=" w-full md:w-1/4  gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class=" h-[14vw] md:h-[5.5vw]" src="/images/secure.png" alt="">
+                <div class=" md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class=" text-[3.1vw] md:text-[1.3vw] font-medium">Secure & Reliable</h2>
+                    <p class=" text-[2.6vw] md:text-[1vw]">100% secure platform for your information</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4 gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/eassy.png" alt="">
+                <div class="md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">Easy Registration</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">Simple Steps to register your vehicle online</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4 gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/track.png" alt="">
+                <div class="md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">Track Application</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">Track your application at every stage</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4  gap-2 flex  px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/support.png" alt="">
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">24/7 Support</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">We are here to help you anytime,anywhere</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById("form");
+        const form1 = document.getElementById("form1");
+        
+        form.addEventListener("submit",async (e)=>{
+            e.preventDefault();
+            const fullname =document.getElementById("fullname").value;
+            const username =document.getElementById("username").value;
+            const email =document.getElementById("email").value;
+            const dob =document.getElementById("dob").value;
+            const mob =document.getElementById("mob").value;
+            const password =document.getElementById("password").value;
+            
+            const response = await fetch('/admin/register',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({fullname,username,email,dob,mob,password})
+                
+            })
+            if(!response.ok){
+                throw new Error("Account Creation Failed");
+            }
+
+            let data = await response.json();
+            if(!data.success){
+
+                alert(data.message);
+            }
+            else{
+                window.location.replace("/admin/dashboard");
+            }
+        })
+        form1.addEventListener("submit",async (e)=>{
+            e.preventDefault();
+            const fullname =document.getElementById("fullname1").value;
+            const username =document.getElementById("username1").value;
+            const email =document.getElementById("email1").value;
+            const dob =document.getElementById("dob1").value;
+            const mob =document.getElementById("mob1").value;
+            const password =document.getElementById("password1").value;
+            
+            const response = await fetch('/admin/register',{
+                method:"POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body:JSON.stringify({fullname,username,email,dob,mob,password})
+                
+            })
+
+            if(!response.ok){
+                throw new Error("Account Creation Failed");
+            }
+
+            let data = await response.json();
+            if(!data.success){
+
+                alert(data.message);
+            }
+            else{
+                window.location.replace("/admin/dashboard");
+            }
+        })
+
+    </script>
+
+
+    <script src="/scripts/password_compare.js"></script>
+</body>
+
+</html>

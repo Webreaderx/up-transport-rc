@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        body {
+
+            font-family: "Inter", sans-serif;
+
+        }
+        .cardshadow{
+            box-shadow: 0 0 5px 5px rgba(128, 128, 128, 0.288);
+        }
+
+        .backsec {
+            background: url("/public/images/bgfull.png") no-repeat center center/cover;
+            position: relative;
+
+        }
+
+        .texo {
+            text-shadow: 0 0 60px white;
+        }
+
+        .gradi {
+            background: linear-gradient(to right, rgba(243, 243, 243, 0.952), rgba(243, 243, 243, 0.74), Transparent);
+
+        }
+    </style>
+</head>
+
+<body class="">
+    <nav class=" h-[19vw] md:h-[6vw] flex items-center justify-between relative bg-white">
+        <div class="flex gap-2 p-2 md:p-[0.5vw] items-center h-full">
+            <img class="h-full" src="/images/UPLogo.png" alt="">
+            <div>
+                <h3 class="text-[4vw] md:text-[1.8vw] tracking-tight sm:leading-tight font-medium">Uttar Pradesh State
+                    Transport</h3>
+                <p class=" text-xs md:text-[1vw]">Vehical Registration Portal</p>
+            </div>
+        </div>
+        <div class="h-full gap-4 pr-5 flex items-center">
+            <div class="h-full hidden md:flex items-center  ">
+                <img class="h-7/10" src="/images/secure.png" alt="">
+                <div class="h-full flex flex-col  justify-center ">
+                    <h2 class=" text-sm font-medium border-r-3 border-zinc-300">Official Portal</h2>
+                    <p class="text-xs border-r-3 border-zinc-300 pr-3">Goverment of Uttar Pradesh</p>
+                </div>
+            </div>
+            <div class="h-full flex items-center">
+                <img class=" h-6/10 md:h-7/10" src="/images/support.png" alt="">
+                <div class="h-full flex flex-col  justify-center">
+                    <h2 class=" text-sm hidden md:flex font-medium">Need Help ?</h2>
+                    <p class="text-xs hidden md:flex ">Support and FAQ</p>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class=" h-[100vw] md:h-[50vw]  bg-[url('/images/bgfull.png')] bg-cover bg-[position:12%_center]">
+        <div class="h-[100%] flex flex-col md:flex-row ">
+            <div
+                class="gradi h-[100%] width-full md:w-1/2 flex flex-col pl-[6vw] md:pl-[10vw] pt-[6.1vw] md:pt-[8vw] pr-9 md:pr-0">
+
+                <h2 class=" text-3xl md:text-[4vw] text-black font-bold texo">Uttar Pradesh</h2>
+                <h2 class=" text-3xl md:text-[4vw] text-blue-800 font-bold texo">State Transport</h2>
+                <p class="text-xl md:text-[1.9vw] text-black font-medium texo ">Vehical Registration Portal</p>
+                <hr class="h-[1vw] md:h-[0.5vw] mt-[3vw] mb-[3vw] md:mb-[1vw] md:mt-6 bg-blue-800  w-1/2">
+                <p class="texo text-[3vw] md:text-[1.2vw] font-sm">A secure and efficient platform for vehicle owners to register
+                    their
+                    vehicles and track applications online. Your convenience, our commitment.</p>
+            </div>
+            <div class="h-[80%] w-1/2 flex hidden md:flex items-center justify-center gap-4 ">
+                <div
+                    class="w-2/5 h-8/10 rounded-3xl flex flex-col items-center justify-center shadow-xl shadow-gray-600 bg-white">
+                    <img class="h-[5.8vw] bg-blue-100 rounded-full" src="/images/login.png" alt="">
+                    <h2 class="text-[2vw] text-blue-700 font-bold">User Login</h2>
+                    <hr class="bg-blue border-2 border-blue-600 w-12 mt-2">
+                    <p class="flex text-[1.1vw] text-center p-5">New User? Register and apply for vehicle registration.
+                        Track your
+                        application status easily.</p>
+                    <a class="px-3 py-2 bg-blue-700 text-[1.2vw] text-white rounded-lg font-medium"
+                        href="/user/login">Login as User</a>
+                </div>
+                <div
+                    class="w-2/5 h-8/10 rounded-3xl flex flex-col items-center justify-center shadow-xl shadow-gray-600 bg-white">
+                    <img class="h-[5.8vw] bg-green-100 rounded-full" src="/images/admin login.png" alt="">
+                    <h2 class="text-[2vw] text-green-700 font-bold">Admin Login</h2>
+                    <hr class="bg-blue text-[1vw] border-2 border-green-600 w-12 mt-2">
+                    <p class="flex text-[1.1vw] text-center  p-5">Authorized Admin? Login to review, approve or reject
+                        vehicle
+                        registration applications.</p>
+                    <a class="px-3 py-2 bg-green-700 text-[1.2vw] text-white rounded-lg font-medium"
+                        href="/admin/login">Login as Admin</a>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <div class="w-full bg-white -mt-[20vw] flex md:hidden flex-col gap-[2vw] justify-center p-[4vw] m-y-auto">
+        <div class="w-full bg-white  cardshadow flex gap-[4vw] flex-col rounded-md p-[4vw]">
+            <div class="w-full gap-[4vw] flex items-center">
+                <img class="h-[22vw] bg-blue-100 rounded-full p-[2vw]" src="/images/login.png" >
+                <div class="flex gap-[3vw] flex-col">
+                    <p class="text-[6vw] text-blue-800 font-medium">User Login</p>
+                    <hr class="h-[0.6vw] w-[20vw] bg-blue-700">
+                    <p class="text-[3.4vw]">New User? Register and apply for vehicle registration. Track your
+                        application status easily.</p>
+                </div>
+            </div>
+            <a class="px-3 py-2 bg-blue-700 text-[4vw] flex items-center justify-between text-white rounded-md font-medium" href="/user/login">Login as User <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg></a>
+
+        </div>
+        <div class="w-full bg-white  cardshadow flex gap-[4vw] flex-col rounded-md p-[4vw]">
+            <div class="w-full gap-[4vw] flex items-center">
+                <img class="h-[22vw] bg-green-100 rounded-full p-[2vw]" src="/images/admin login.png" >
+                <div class="flex gap-[3vw] flex-col">
+                    <p class="text-[6vw] text-blue-800 font-medium">Admin Login</p>
+                    <hr class="h-[0.6vw] w-[20vw] bg-blue-700">
+                    <p class="text-[3.4vw]">Authorized Admin? Login to review, approve or reject vehicle registration
+                applications.</p>
+                </div>
+            </div>
+            <a class="px-3 py-2 bg-green-700 text-[4vw] flex items-center justify-between text-white rounded-md font-medium" href="/admin/login">Login as Admin <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right"><path d="M18 8L22 12L18 16"/><path d="M2 12H22"/></svg></a>
+
+        </div>
+    </div>
+
+    
+
+    <div class="w-[100%] flex items-center p-[4vw] md:p-0 justify-center">
+        <div
+            class="w-[100%]  md:w-10/12 bg-white overflow-hidden shadow-[0_0_15px_0_rgba(0,0,0,0.5)]  md:m-10 -mt-[2vw] md:-mt-20 items-center flex flex-col md:flex-row rounded-md md:rounded-3xl">
+            <div class=" w-full md:w-1/4  gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class=" h-[14vw] md:h-[5.5vw]" src="/images/secure.png" alt="">
+                <div class=" md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class=" text-[3.1vw] md:text-[1.3vw] font-medium">Secure & Reliable</h2>
+                    <p class=" text-[2.6vw] md:text-[1vw]">100% secure platform for your information</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4 gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/eassy.png" alt="">
+                <div class="md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">Easy Registration</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">Simple Steps to register your vehicle online</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4 gap-2 flex md:pr-1 px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/track.png" alt="">
+                <div class="md:border-r-3 flex flex-col justify-center border-zinc-300">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">Track Application</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">Track your application at every stage</p>
+                </div>
+            </div>
+            <hr class="border-1 md:border-none border-zinc-400 w-8/10 md:w-0 ">
+            <div class="w-full md:w-1/4  gap-2 flex  px-[5vw] py-[2vw] md:p-5 md:px-5 md:py-5 h-full">
+                <img class="h-[14vw] md:h-[5.5vw]" src="/images/support.png" alt="">
+                <div class="flex flex-col justify-center">
+                    <h2 class="text-[3.1vw] md:text-[1.3vw] font-medium">24/7 Support</h2>
+                    <p class="text-[2.6vw] md:text-[1vw]">We are here to help you anytime,anywhere</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
