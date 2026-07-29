@@ -323,6 +323,20 @@ UP Transport RC Team`
 
         if (indicator) {
 
+            console.log("========== MAIL DEBUG ==========");
+            console.log("EMAIL:", process.env.EMAIL);
+            console.log("EMAIL_KEY exists:", !!process.env.EMAIL_KEY);
+            console.log("Receiver:", user.email);
+            console.log("Indicator:", indicator);
+
+            try {
+                await transporter.verify();
+                console.log("Transporter Verified Successfully");
+            } catch (err) {
+                console.log("VERIFY ERROR:");
+                console.log(err);
+            }
+
 
             await transporter.sendMail(mailOptions);
 
@@ -377,7 +391,7 @@ router.get("/reject/:id", isAdminLoggedin, async (req, res) => {
         user.notifications.push(notification._id);
         await user.save();
 
-         const mailOptions = {
+        const mailOptions = {
             from: `UP Transport Department" <${process.env.EMAIL}>`,
             to: user.email,
             subject: "Vehicle Registration Application Update | UP Transport RC",
@@ -528,10 +542,10 @@ router.get("/inActive/:id", isAdminLoggedin, async (req, res) => {
     let admin = await adminModel.findOne({ _id: req.params.id });
     if (!admin) return res.send("something went wrong");
     try {
-        let admins = await adminModel.find({super:true,active:true});
-        
-        
-        if(admins.length>1){
+        let admins = await adminModel.find({ super: true, active: true });
+
+
+        if (admins.length > 1) {
 
             admin.active = false;
             await admin.save();
@@ -540,7 +554,7 @@ router.get("/inActive/:id", isAdminLoggedin, async (req, res) => {
                 message: "Inactive Successfully"
             })
         }
-        else{
+        else {
             return res.json({
                 success: false,
                 message: "One super admin should be active"
