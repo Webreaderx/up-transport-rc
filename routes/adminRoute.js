@@ -337,8 +337,22 @@ UP Transport RC Team`
                 console.log(err);
             }
 
+            try {
+                console.log("Before sendMail");
 
-            await transporter.sendMail(mailOptions);
+                const info = await transporter.sendMail(mailOptions);
+
+                console.log("After sendMail");
+                console.log(info);
+
+            } catch (err) {
+                console.log("SEND MAIL ERROR");
+                console.log(err);
+                console.log(err.message);
+            }
+
+
+            // await transporter.sendMail(mailOptions);
 
 
 
