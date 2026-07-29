@@ -708,7 +708,7 @@ router.get("/adminControlPanel", isAdminLoggedin, async (req, res) => {
 
 
     try {
-        res.render("adminControlpanel", { admin, flag });
+        res.render("adminControlPanel", { admin, flag });
 
     } catch (error) {
         res.send(error.message);
