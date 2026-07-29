@@ -758,7 +758,7 @@
 
         const toggle = document.getElementById("toggle");
         toggle.addEventListener("click", async () => {
-            if (<%= flag %>){
+            if (toggle.classList.contains("bg-green-600")){
 
             let response = await fetch("/admin/messageOff");
             if (!response.ok) {
