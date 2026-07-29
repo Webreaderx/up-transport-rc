@@ -17,6 +17,9 @@ const messageModel = require("../models/message");
 const message = require('../models/message');
 require("dotenv").config();
 const nodemailer = require("nodemailer");
+const dns = require("dns");
+
+dns.setDefaultResultOrder("ipv4first");
 
 const transporter = nodemailer.createTransport({
      host: "smtp.gmail.com",
@@ -26,9 +29,7 @@ const transporter = nodemailer.createTransport({
         user: process.env.EMAIL,
         pass: process.env.EMAIL_KEY
     },
-    tls: {
-        rejectUnauthorized: false
-    }
+    
 });
 
 router.get("/login", async (req, res) => {
