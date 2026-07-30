@@ -15,21 +15,15 @@ const isAdminLoggedin = require('../middlewere/isAdminLoggedin');
 const notificationModel = require("../models/notification");
 require("dotenv").config();
 const nodemailer = require("nodemailer");
-const messageModel = require("../models/message")
+const messageModel = require("../models/message");
+const sendEmail = require("../utils/sendEmail");
+
+const axios = require("axios");
 
 
 router.use(cookieParser());
 
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.SMTP_LOGIN,
-        pass: process.env.EMAIL_KEY
-    }
 
-});
 
 router.get("/login", async (req, res) => {
 
@@ -241,11 +235,26 @@ router.post("/vehicle", upload.single("vhImg"), isLoggedIn, async (req, res) => 
         user.notifications.push(notification._id);
         await user.save();
 
-        const mailOptions = {
-            from: `UP Transport Department" <${process.env.EMAIL}>`,
-            to: user.email,
-            subject: "Vehicle Registration Application Submitted",
-            text: `Dear ${user.fullname},
+       
+
+
+
+
+
+        // Send Email
+        const messages = await messageModel.find();
+        const indicator = messages[0].flag;
+
+
+        if (indicator) {
+
+try {
+    await sendEmail({
+        to: user.email,
+
+        subject: "UP Transport RC - Vehicle Registration Submitted",
+
+        text: `Dear ${user.fullname},
 
 Thank you for choosing UP Transport RC.
 
@@ -260,29 +269,11 @@ Thank you for using UP Transport RC.
 
 Regards,
 UP Transport RC Team`
-        };
-
-
-
-
-
-        // Send Email
-        const messages = await messageModel.find();
-        const indicator = messages[0].flag;
-
-
-        if (indicator) {
-
-
-
-            try {
-
-                await transporter.sendMail(mailOptions);
-
-            } catch (err) {
-
-                console.log(err.message);
-            }
+    });
+} catch (err) {
+    console.error("Application Submission Email Failed:");
+    console.error(err.message);
+}
 
 
 

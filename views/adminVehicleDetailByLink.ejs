@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body class="flex flex-col min-h-screen overflow-x-hidden">
+<body id="base" class="flex flex-col min-h-screen overflow-x-hidden  ">
     <nav class=" h-23 md:h-auto flex items-center justify-between relative bg-white">
         <div class="flex gap-2 p-2 items-center h-full">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1069,6 +1069,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
+        const base = document.getElementById("base");
 
         function followLink(event,element){
             event.preventDefault();
@@ -1078,6 +1079,8 @@
         async function approveApp(id){
             event.preventDefault();
             try {
+                base.classList.add("opacity-50");
+                base.classList.add("bg-black");
                 let response = await fetch(`/admin/approve/${id}`);
 
                 if(!response.ok){
@@ -1086,6 +1089,8 @@
 
                 let data = await response.json();
                 if(data.success){
+                    base.classList.remove("opacity-50");
+                    base.classList.remove("bg-black");
                     window.location.reload();
                 }
                 
@@ -1097,6 +1102,8 @@
         async function rejectApp(id){
             event.preventDefault();
             try {
+                base.classList.add("opacity-50");
+                base.classList.add("bg-black");
                 let response = await fetch(`/admin/reject/${id}`);
 
                 if(!response.ok){
@@ -1105,6 +1112,8 @@
 
                 let data = await response.json();
                 if(data.success){
+                    base.classList.remove("opacity-50");
+                    base.classList.remove("bg-black");
                     window.location.reload();
                 }
                 

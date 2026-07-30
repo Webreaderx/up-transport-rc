@@ -20,59 +20,13 @@ const nodemailer = require("nodemailer");
 const dns = require("dns");
 const sendEmail = require("../utils/sendEmail");
 
-dns.setDefaultResultOrder("ipv4first");
-
 const axios = require("axios");
 
-router.get("/test-mail", async (req, res) => {
-    try {
 
-        const response = await axios.post(
-            "https://api.brevo.com/v3/smtp/email",
-            {
-                sender: {
-                    name: "UP Transport Department",
-                    email: process.env.EMAIL
-                },
-                to: [
-                    {
-                        email: "kunalprofilecode00@gmail.com"
-                    }
-                ],
-                subject: "Brevo API Test",
-                textContent: "Congratulations BBU! 🎉 Brevo API is working successfully on Render."
-            },
-            {
-                headers: {
-                    "api-key": process.env.BREVO_API_KEY,
-                    "Content-Type": "application/json"
-                }
-            }
-        );
 
-        console.log(response.data);
 
-        res.send("Mail Sent Successfully");
 
-    } catch (err) {
 
-        console.log("BREVO API ERROR");
-        console.log(err.response?.data || err.message);
-
-        res.send("Mail Failed");
-    }
-});
-
-const transporter = nodemailer.createTransport({
-    host: "smtp-relay.brevo.com",
-    port: 587,
-    secure: false,
-    auth: {
-        user: process.env.SMTP_LOGIN,
-        pass: process.env.EMAIL_KEY
-    }
-
-});
 
 router.get("/login", async (req, res) => {
     let admins = await adminModel.find();
