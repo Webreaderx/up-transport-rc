@@ -29,7 +29,7 @@ const transporter = nodemailer.createTransport({
         user: process.env.SMTP_LOGIN,
         pass: process.env.EMAIL_KEY
     }
-    
+
 });
 
 router.get("/login", async (req, res) => {
@@ -329,15 +329,15 @@ UP Transport RC Team`
 
         if (indicator) {
             try {
-                
+
                 await transporter.sendMail(mailOptions);
-                
+
             } catch (err) {
-                
+
                 console.log(err.message);
             }
 
-           // await transporter.sendMail(mailOptions);
+            // await transporter.sendMail(mailOptions);
 
         }
 
@@ -382,7 +382,7 @@ router.get("/reject/:id", isAdminLoggedin, async (req, res) => {
         await user.save();
 
         const mailOptions = {
-            from: `UP Transport Department" <${process.env.EMAIL}>`,
+            from: `"UP Transport Department" <${process.env.EMAIL}>`,
             to: user.email,
             subject: "Vehicle Registration Application Update | UP Transport RC",
             text: `Dear ${user.fullname},
@@ -414,12 +414,12 @@ UP Transport RC Team`
 
 
         if (indicator) {
-
-
-            await transporter.sendMail(mailOptions);
-
-
-
+            try {
+                await transporter.sendMail(mailOptions);
+            } catch (err) {
+                console.log("Reject Mail Error:");
+                console.log(err);
+            }
         }
 
         res.json({
