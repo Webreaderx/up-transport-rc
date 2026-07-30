@@ -18,6 +18,7 @@ const message = require('../models/message');
 require("dotenv").config();
 const nodemailer = require("nodemailer");
 const dns = require("dns");
+const sendEmail = require("../utils/sendEmail");
 
 dns.setDefaultResultOrder("ipv4first");
 
@@ -338,11 +339,25 @@ router.get("/approve/:id", isAdminLoggedin, async (req, res) => {
 
         user.notifications.push(notification._id);
         await user.save();
-        const mailOptions = {
-            from: `"UP Transport Department" <${process.env.EMAIL}>`,
-            to: user.email,
-            subject: "UP Transport RC - Vehicle Registration Approved",
-            text: `Dear ${user.fullname},
+        
+
+
+
+
+        // Send Email
+        const messages = await messageModel.find();
+        const indicator = messages[0].flag;
+
+
+        if (indicator) {
+            try {
+
+                await sendEmail({
+    to: user.email,
+
+    subject: "UP Transport RC - Vehicle Registration Approved",
+
+    text: `Dear ${user.fullname},
 
 Congratulations!
 
@@ -357,25 +372,11 @@ Thank you for using UP Transport RC.
 
 Regards,
 UP Transport RC Team`
-        };
-
-
-
-
-
-        // Send Email
-        const messages = await messageModel.find();
-        const indicator = messages[0].flag;
-
-
-        if (indicator) {
-            try {
-
-                await transporter.sendMail(mailOptions);
+});
 
             } catch (err) {
 
-                console.log(err.message);
+                console.error("Email failed:", err.message);
             }
 
             // await transporter.sendMail(mailOptions);
@@ -422,11 +423,25 @@ router.get("/reject/:id", isAdminLoggedin, async (req, res) => {
         user.notifications.push(notification._id);
         await user.save();
 
-        const mailOptions = {
-            from: `"UP Transport Department" <${process.env.EMAIL}>`,
-            to: user.email,
-            subject: "Vehicle Registration Application Update | UP Transport RC",
-            text: `Dear ${user.fullname},
+        
+
+
+
+
+
+        // Send Email
+        const messages = await messageModel.find();
+        const indicator = messages[0].flag;
+
+
+        if (indicator) {
+            try {
+                await sendEmail({
+    to: user.email,
+
+    subject: "Vehicle Registration Application Update | UP Transport RC",
+
+    text: `Dear ${user.fullname},
 
 Thank you for submitting your vehicle registration application.
 
@@ -443,23 +458,9 @@ We appreciate your understanding and thank you for choosing UP Transport RC.
 
 Regards,
 UP Transport RC Team`
-        };
-
-
-
-
-
-        // Send Email
-        const messages = await messageModel.find();
-        const indicator = messages[0].flag;
-
-
-        if (indicator) {
-            try {
-                await transporter.sendMail(mailOptions);
+});
             } catch (err) {
-                console.log("Reject Mail Error:");
-                console.log(err);
+                console.error("Email failed:", err.message);
             }
         }
 

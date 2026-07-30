@@ -12,6 +12,7 @@ const adminModel= require("./models/admin");
 const notificationModel= require("./models/notification");
 const messageModel = require("./models/message");
 const nodemailer = require('nodemailer');
+const sendEmail = require("./utils/sendEmail");
 
 
 require('dotenv').config();
