@@ -21,11 +21,14 @@ const messageModel = require("../models/message")
 router.use(cookieParser());
 
 const transporter = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp-relay.brevo.com",
+    port: 587,
+    secure: false,
     auth: {
-        user: process.env.EMAIL,
+        user: process.env.SMTP_LOGIN,
         pass: process.env.EMAIL_KEY
     }
+
 });
 
 router.get("/login", async (req, res) => {
@@ -271,7 +274,15 @@ UP Transport RC Team`
         if (indicator) {
 
 
-            await transporter.sendMail(mailOptions);
+
+            try {
+
+                await transporter.sendMail(mailOptions);
+
+            } catch (err) {
+
+                console.log(err.message);
+            }
 
 
 

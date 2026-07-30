@@ -22,13 +22,13 @@ const dns = require("dns");
 dns.setDefaultResultOrder("ipv4first");
 
 const transporter = nodemailer.createTransport({
-     host: "smtp.gmail.com",
+    host: "smtp-relay.brevo.com",
     port: 587,
     secure: false,
     auth: {
-        user: process.env.EMAIL,
+        user: process.env.SMTP_LOGIN,
         pass: process.env.EMAIL_KEY
-    },
+    }
     
 });
 
@@ -298,7 +298,7 @@ router.get("/approve/:id", isAdminLoggedin, async (req, res) => {
         user.notifications.push(notification._id);
         await user.save();
         const mailOptions = {
-            from: `UP Transport Department" <${process.env.EMAIL}>`,
+            from: `"UP Transport Department" <${process.env.EMAIL}>`,
             to: user.email,
             subject: "UP Transport RC - Vehicle Registration Approved",
             text: `Dear ${user.fullname},
@@ -328,45 +328,18 @@ UP Transport RC Team`
 
 
         if (indicator) {
-
-            console.log("========== MAIL DEBUG ==========");
-            console.log("EMAIL:", process.env.EMAIL);
-            console.log("EMAIL_KEY exists:", !!process.env.EMAIL_KEY);
-            console.log("Receiver:", user.email);
-            console.log("Indicator:", indicator);
-
             try {
-                await transporter.verify();
-                console.log("Transporter Verified Successfully");
+                
+                await transporter.sendMail(mailOptions);
+                
             } catch (err) {
-                console.log("VERIFY ERROR:");
-                console.log(err);
-            }
-
-            try {
-                console.log("Before sendMail");
-
-                const info = await transporter.sendMail(mailOptions);
-
-                console.log("After sendMail");
-                console.log(info);
-
-            } catch (err) {
-                console.log("SEND MAIL ERROR");
-                console.log(err);
+                
                 console.log(err.message);
             }
 
-
-            // await transporter.sendMail(mailOptions);
-
-
+           // await transporter.sendMail(mailOptions);
 
         }
-
-
-
-
 
 
         res.json({
@@ -375,9 +348,6 @@ UP Transport RC Team`
         })
 
     } catch (error) {
-
-
-
 
 
         res.status(500).json({
